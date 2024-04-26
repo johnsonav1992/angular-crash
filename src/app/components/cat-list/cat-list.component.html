@@ -1,0 +1,5 @@
+<ul>
+    <li *ngFor="let cat of catsService.cats; let i = index">
+        {{ cat.name }}, {{ cat.age }}, {{ cat.weight }}
+    </li>
+</ul>

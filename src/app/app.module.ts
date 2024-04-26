@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutPageComponent } from './components/about-page/about-page.component';
+import { CatListComponent } from './components/cat-list/cat-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AboutPageComponent
+    AboutPageComponent,
+    CatListComponent
   ],
   imports: [
     BrowserModule,
