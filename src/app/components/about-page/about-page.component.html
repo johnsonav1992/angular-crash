@@ -2,7 +2,10 @@
 <h1>
     {{ poop }}
 </h1>
-<cat-list />
+<cat-list something="yo man!" (somethingElse)="handleOutput($event)"/>
+
+<img src="{{(catsService.dogFetch$ | async)?.message}}" width="200px">
+<img src="{{(notherFetch$ | async)?.message}}" width="200px">
 <button (click)="changeNames($event)">
     Change it bro!
 </button>

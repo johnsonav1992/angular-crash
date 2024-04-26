@@ -1,5 +1,7 @@
 <ul>
-    <li *ngFor="let cat of catsService.cats; let i = index">
+    <li *ngFor="let cat of catsService.cats | async; let i = index">
         {{ cat.name }}, {{ cat.age }}, {{ cat.weight }}
     </li>
+    <p>{{ something }}</p>
+    <button (click)="somethingElse.emit('bruh')">EMIT!!!</button>
 </ul>
