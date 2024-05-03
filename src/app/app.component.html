@@ -11,6 +11,7 @@
   <ul *ngIf="tasksService.tasks as tasks else loader">
     <li *ngFor="let task of tasks">
       {{ task.title }}
+      <button (click)="tasksService.deleteTask(task.id)">X</button>
     </li>
   </ul>
 </div>

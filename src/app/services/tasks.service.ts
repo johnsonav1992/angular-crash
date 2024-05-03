@@ -35,4 +35,10 @@ export class TasksService {
     })
   }
 
+  deleteTask(id: number) {
+    this.http.delete(`${this.baseUrl}/tasks/${id}`).subscribe(task => {
+      this.getAllTasks()
+    })
+  }
+
 }
