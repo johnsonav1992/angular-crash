@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { filter, map, of, switchMap } from 'rxjs';
+import { sleep } from '../utils/sleep';
 
 export type Task = {
   id: number,
@@ -19,7 +20,9 @@ export class TasksService {
 
   constructor(private http: HttpClient) { }
 
-  getAllTasks() {
+  async getAllTasks() {
+    await sleep(2)
+    
     return this.http
       .get<Task[]>(`${this.baseUrl}/tasks`)
       .pipe(
