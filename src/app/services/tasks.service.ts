@@ -32,7 +32,7 @@ export class TasksService {
   }
 
   addTask(task: NewTask) {
-    this.http.post(`${this.baseUrl}/tasks`, task).subscribe(task => {
+    this.http.post(`${this.baseUrl}/tasks`, task).subscribe(() => {
       this.getAllTasks()
     })
   }

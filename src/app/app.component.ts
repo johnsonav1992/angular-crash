@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Task, TasksService } from './services/tasks.service';
+import { TasksService } from './services/tasks.service';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
