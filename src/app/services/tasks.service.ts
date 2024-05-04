@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { filter, map, of, switchMap } from 'rxjs';
-import { sleep } from '../utils/sleep';
+import { delay, filter, map} from 'rxjs';
+import { getRandomLoadTime } from '../utils/getRandomLoadTime';
 
 export type Task = {
   id: number,
@@ -16,17 +16,16 @@ export type NewTask = Omit<Task, 'id'>;
 export class TasksService {
   baseUrl = 'http://localhost:8080'
 
-  tasks: Task[] = [];
+  tasks: Task[] | undefined;
 
   constructor(private http: HttpClient) { }
 
-  async getAllTasks() {
-    await sleep(2)
-    
+  getAllTasks() {
     return this.http
       .get<Task[]>(`${this.baseUrl}/tasks`)
       .pipe(
-        filter(tasks => tasks.length > 0)
+        delay(getRandomLoadTime())
+        , filter(tasks => tasks.length > 0)
         , map(tasks => tasks.map(task => ({ ...task, title: task.title.toLowerCase() })))
       )
       .subscribe(tasks => this.tasks = tasks )
